@@ -15,7 +15,7 @@
   "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2_FRLG",
       "x": 11,
       "y": 19,
       "elevation": 0,
@@ -33,7 +33,7 @@
       "x": 4,
       "y": 25,
       "elevation": 0,
-      "dest_map": "MAP_HIDDEN_VILLAGE",
+      "dest_map": "MAP_HIDDEN_VILLAGE_PLAYER_HOUSE",
       "dest_warp_id": "0"
     }
   ],
@@ -44,8 +44,8 @@
       "y": 19,
       "elevation": 0,
       "var": "VAR_HIDDEN_VILLAGE_STATE",
-      "var_value": "1",
-      "script": "HiddenVillage_EventScript_LateTrigger"
+      "var_value": "0",
+      "script": "HiddenVillage_EventScript_LateTriggerRight"
     },
     {
       "type": "trigger",
@@ -53,8 +53,35 @@
       "y": 19,
       "elevation": 0,
       "var": "VAR_HIDDEN_VILLAGE_STATE",
-      "var_value": "1",
-      "script": "HiddenVillage_EventScript_LateTrigger"
+      "var_value": "0",
+      "script": "HiddenVillage_EventScript_LateTriggerRight"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "0",
+      "script": "HiddenVillage_EventScript_LateTriggerLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "0",
+      "script": "HiddenVillage_EventScript_LateTriggerLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "0",
+      "script": "HiddenVillage_EventScript_LateTriggerLeft"
     }
   ],
   "bg_events": []
