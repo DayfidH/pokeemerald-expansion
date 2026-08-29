@@ -1,0 +1,61 @@
+{
+  "id": "MAP_HIDDEN_VILLAGE",
+  "name": "HiddenVillage",
+  "layout": "LAYOUT_HIDDEN_VILLAGE",
+  "music": "MUS_PETALBURG_WOODS",
+  "region_map_section": "MAPSEC_PETALBURG_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "x": 11,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HiddenVillage_EventScript_Lady",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_VILLAGE",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "1",
+      "script": "HiddenVillage_EventScript_LateTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "1",
+      "script": "HiddenVillage_EventScript_LateTrigger"
+    }
+  ],
+  "bg_events": []
+}

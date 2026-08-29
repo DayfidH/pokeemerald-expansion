@@ -1,0 +1,84 @@
+const LOCALID_LADY = 1 // Replace 1 with the Object Event ID of the NPC from Porymap
+
+// --------------------------------------------------
+// Map Scripts: Handles NPC positioning and behavior 
+// based on the town state before the map loads.
+// --------------------------------------------------
+mapscripts HiddenVillage_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: HiddenVillage_OnTransition
+}
+
+script HiddenVillage_OnTransition {
+    switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
+        case 2:
+            // Move NPC to backyard coordinates and set behavior to look around
+            setobjectxyperm(LOCALID_LADY, 14, 14) // Replace 14, 14 with backyard X/Y coordinates
+            setobjectmovementtype(LOCALID_LADY, MOVEMENT_TYPE_LOOK_AROUND)
+        case 3:
+            // Move NPC to garden coordinates and set behavior to wander
+            setobjectxyperm(LOCALID_LADY, 4, 14) // Replace 4, 14 with garden X/Y coordinates
+            setobjectmovementtype(LOCALID_LADY, MOVEMENT_TYPE_WANDER_AROUND)
+    }
+}
+
+// --------------------------------------------------
+// Main NPC Interaction Script
+// Assign this script to the NPC in Porymap.
+// --------------------------------------------------
+script HiddenVillage_EventScript_Lady {
+    lock
+    faceplayer
+    
+    switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
+        case 1:
+            msgbox(format("{PLAYER}! You're going to be late! Hurry up and see the Village Elder..."))
+            closemessage
+            // Force NPC to face down after speaking normally
+            applymovement(LOCALID_LADY, Common_Movement_FaceDown)
+            waitmovement(0)
+            
+        case 2:
+            msgbox(format("I swear I saw a rare Pokémon hiding in this backyard just a second ago..."))
+            
+        case 3:
+            msgbox(format("The weather is so lovely today. The garden is thriving!"))
+    }
+    
+    release
+    end
+}
+
+// --------------------------------------------------
+// Trigger Script
+// Assign this script to your two trigger tiles in Porymap.
+// In Porymap, set "Var" to VAR_HIDDEN_VILLAGE_STATE and "Var Value" to 1.
+// --------------------------------------------------
+script HiddenVillage_EventScript_LateTrigger {
+    lockall
+    
+    // NPC looks right (assuming player is walking up on the right side)
+    applymovement(LOCALID_LADY, Common_Movement_FaceRight)
+    // Player turns left to face the NPC
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+    waitmovement(0)
+    
+    msgbox(format("{PLAYER}! You're going to be late! Hurry up and see the Village Elder..."))
+    closemessage
+    
+    // NPC faces down, Player is forced to walk down one tile
+    applymovement(LOCALID_LADY, Common_Movement_FaceDown)
+    applymovement(OBJ_EVENT_ID_PLAYER, HiddenVillage_Movement_PushPlayerDown)
+    
+    // Wait for both movements to finish
+    waitmovement(0) 
+    
+    releaseall
+    end
+}
+
+// --------------------------------------------------
+// Custom Movement Data
+// --------------------------------------------------
+movement HiddenVillage_Movement_PushPlayerDown {
+    walk_down
+}

@@ -9323,6 +9323,16 @@
       "border_height": 2,
       "border_width": 2,
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_HIDDEN_VILLAGE",
+      "name": "HiddenVillage_Layout",
+      "width": 30,
+      "height": 39,
+      "primary_tileset": "gTileset_Johto_General_Hns",
+      "secondary_tileset": "gTileset_NewBarkTown_Hns",
+      "border_filepath": "data/layouts/HiddenVillage/border.bin",
+      "blockdata_filepath": "data/layouts/HiddenVillage/map.bin"
     }
   ]
 }
