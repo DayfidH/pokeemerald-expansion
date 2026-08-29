@@ -9333,6 +9333,26 @@
       "secondary_tileset": "gTileset_NewBarkTown_Hns",
       "border_filepath": "data/layouts/HiddenVillage/border.bin",
       "blockdata_filepath": "data/layouts/HiddenVillage/map.bin"
+    },
+    {
+      "id": "LAYOUT_HIDDEN_VILLAGE_PLAYER_HOUSE",
+      "name": "HiddenVillage_PlayerHouse_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_Johto_Building_Hns",
+      "secondary_tileset": "gTileset_NewBarkTown_Hns",
+      "border_filepath": "data/layouts/HiddenVillage_PlayerHouse/border.bin",
+      "blockdata_filepath": "data/layouts/HiddenVillage_PlayerHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_HIDDEN_VILLAGE_ELDERS_LAB",
+      "name": "HiddenVillage_EldersLab_Layout",
+      "width": 11,
+      "height": 15,
+      "primary_tileset": "gTileset_Johto_Building_Hns",
+      "secondary_tileset": "gTileset_NewBarkTown_Hns",
+      "border_filepath": "data/layouts/HiddenVillage_EldersLab/border.bin",
+      "blockdata_filepath": "data/layouts/HiddenVillage_EldersLab/map.bin"
     }
   ]
 }

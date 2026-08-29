@@ -77,6 +77,7 @@
     "gMapGroup_IndoorSevenIslandRoute_Frlg"
   ],
   "gMapGroup_TownsAndRoutes": [
+    "HiddenVillage",
     "PetalburgCity",
     "SlateportCity",
     "MauvilleCity",
@@ -133,8 +134,7 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125",
-    "HiddenVillage"
+    "Underwater_Route125"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -198,6 +198,8 @@
     "PacifidlogTown_House5"
   ],
   "gMapGroup_IndoorPetalburg": [
+    "HiddenVillage_PlayerHouse",
+    "HiddenVillage_EldersLab",
     "PetalburgCity_WallysHouse",
     "PetalburgCity_Gym",
     "PetalburgCity_House1",

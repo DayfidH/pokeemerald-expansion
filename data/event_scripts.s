@@ -1740,3 +1740,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/wild_encounter.inc"
 
 	.include "data/maps/HiddenVillage/scripts.inc"
+
+	.include "data/maps/HiddenVillage_PlayerHouse/scripts.inc"
+
+	.include "data/maps/HiddenVillage_EldersLab/scripts.inc"

@@ -19,6 +19,15 @@ script HiddenVillage_OnTransition {
     }
 }
 
+script HiddenVillage_EventScript_DefaultText {
+    lock
+    faceplayer
+    msgbox(format("Hi {PLAYER}!"))
+    setvar(VAR_HIDDEN_VILLAGE_STATE, 2)
+    release
+    end
+}
+
 // --------------------------------------------------
 // Main NPC Interaction Script
 // --------------------------------------------------
