@@ -200,6 +200,8 @@
   ],
   "gMapGroup_IndoorPetalburg": [
     "HiddenVillage_PlayerHouse",
+    "HiddenVillage_PlayersHouse2F",
+    "HiddenVillage_PlayersHouse_ParentsRoom",
     "HiddenVillage_EldersLab",
     "HiddenVillage_Treehouse",
     "PetalburgCity_WallysHouse",

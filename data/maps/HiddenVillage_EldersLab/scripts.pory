@@ -1,5 +1,3 @@
-const LOCALID_ELDER = 1
-
 // --------------------------------------------------
 // Map Scripts
 // --------------------------------------------------
@@ -46,15 +44,16 @@ script HiddenVillage_EldersLab_EventScript_IntroCutscene {
     msgbox(format("Ah! {PLAYER}!"))
     closemessage
     
-    applymovement(OBJ_EVENT_ID_PLAYER, HiddenVillage_EldersLab_Movement_PlayerEnter)
+    applymovement(LOCALID_ELDER, HiddenVillage_EldersLab_Movement_ElderWalksToPlayer)
     waitmovement(0)
     
-    msgbox(format("You're finally here, everybody is already waiting in the backyard, lets go"))
+    msgbox(format("You're finally here, everybody is already in the backyard waiting for us. Let's head out."))
     closemessage
     
-    applymovement(LOCALID_ELDER, HiddenVillage_EldersLab_Movement_ElderLeave)
+    applymovement(OBJ_EVENT_ID_PLAYER, HiddenVillage_EldersLab_Movement_PlayerMovesRight)
     waitmovement(0)
     
+    applymovement(LOCALID_ELDER, HiddenVillage_EldersLab_Movement_ElderExitsLab)
     playse(SE_EXIT)
     removeobject(LOCALID_ELDER)
     setflag(FLAG_TEMP_1)
@@ -68,13 +67,17 @@ script HiddenVillage_EldersLab_EventScript_IntroCutscene {
 // --------------------------------------------------
 // Custom Movement Data
 // --------------------------------------------------
-movement HiddenVillage_EldersLab_Movement_PlayerEnter {
-    walk_up * 7
+movement HiddenVillage_EldersLab_Movement_PlayerMovesRight {
+    walk_right
+    face_left
 }
 
-movement HiddenVillage_EldersLab_Movement_ElderLeave {
-    walk_left * 2
-    walk_down * 3
-    walk_right * 2
-    walk_down * 6
+movement HiddenVillage_EldersLab_Movement_ElderWalksToPlayer {
+    down * 2
+    right * 4
+    down * 3
+}
+
+movement HiddenVillage_EldersLab_Movement_ElderExitsLab {
+    walk_down * 2
 }

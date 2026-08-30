@@ -15,6 +15,7 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_LADY",
       "graphics_id": "OBJ_EVENT_GFX_DAISY",
       "x": 11,
       "y": 19,
@@ -28,6 +29,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_FRIEND_BRAIN",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
       "x": 21,
       "y": 12,
@@ -38,9 +40,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HiddenVillage_EventScript_DefaultText",
-      "flag": "FLAG_TEMP_2"
+      "flag": "FLAG_TEMP_11"
     },
     {
+      "local_id": "LOCALID_FRIEND_HEART",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 20,
       "y": 12,
@@ -51,9 +54,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HiddenVillage_EventScript_FriendHeart",
-      "flag": "FLAG_TEMP_2"
+      "flag": "FLAG_TEMP_11"
     },
     {
+      "local_id": "LOCALID_FRIEND_STRENGTH",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER_HNS",
       "x": 18,
       "y": 10,
@@ -64,7 +68,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HiddenVillage_EventScript_FriendStrength",
-      "flag": "FLAG_TEMP_3"
+      "flag": "FLAG_TEMP_11"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KURT_HNS",
@@ -77,9 +81,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_TEMP_2"
+      "flag": "FLAG_TEMP_11"
     },
     {
+      "local_id": "LOCALID_INTRO_HEART",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 9,
       "y": 27,
@@ -91,6 +96,48 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_HIDDEN_VILLAGE_HEART_INTRO_COMPLETE"
+    },
+    {
+      "local_id": "LOCALID_TREEHOUSE_STRENGTH",
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER_HNS",
+      "x": 7,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HiddenVillage_EventScript_FriendStrength",
+      "flag": "FLAG_TEMP_13"
+    },
+    {
+      "local_id": "LOCALID_TREEHOUSE_HEART",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 7,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_12"
+    },
+    {
+      "local_id": "LOCALID_TREEHOUSE_BRAIN",
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_12"
     }
   ],
   "warp_events": [
@@ -170,6 +217,24 @@
       "var": "VAR_HIDDEN_VILLAGE_STATE",
       "var_value": "0",
       "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "1",
+      "script": "HiddenVillage_EventScript_ElderClass_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "1",
+      "script": "HiddenVillage_EventScript_ElderClass_Right"
     }
   ],
   "bg_events": []

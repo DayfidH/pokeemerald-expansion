@@ -10,14 +10,14 @@
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_BRENDAN_NORMAL",
-      "x": 3,
-      "y": 5,
+      "x": 7,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -34,6 +34,20 @@
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_HIDDEN_VILLAGE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_VILLAGE_PLAYERS_HOUSE2F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_VILLAGE_PLAYERS_HOUSE_PARENTS_ROOM",
       "dest_warp_id": "0"
     }
   ],

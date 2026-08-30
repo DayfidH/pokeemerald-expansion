@@ -9337,7 +9337,7 @@
     {
       "id": "LAYOUT_HIDDEN_VILLAGE_PLAYER_HOUSE",
       "name": "HiddenVillage_PlayerHouse_Layout",
-      "width": 10,
+      "width": 12,
       "height": 10,
       "primary_tileset": "gTileset_Johto_Building_Hns",
       "secondary_tileset": "gTileset_PlayersHouse_Hns",
@@ -9348,7 +9348,7 @@
       "id": "LAYOUT_HIDDEN_VILLAGE_ELDERS_LAB",
       "name": "HiddenVillage_EldersLab_Layout",
       "width": 11,
-      "height": 15,
+      "height": 11,
       "primary_tileset": "gTileset_Johto_Building_Hns",
       "secondary_tileset": "gTileset_NewBarkTown_Hns",
       "border_filepath": "data/layouts/HiddenVillage_EldersLab/border.bin",
@@ -9373,6 +9373,26 @@
       "secondary_tileset": "gTileset_ViridianForest_Hns",
       "border_filepath": "data/layouts/HiddenForest/border.bin",
       "blockdata_filepath": "data/layouts/HiddenForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_HIDDEN_VILLAGE_PLAYERS_HOUSE_PARENTS_ROOM",
+      "name": "HiddenVillage_PlayersHouse_ParentsRoom_Layout",
+      "width": 8,
+      "height": 10,
+      "primary_tileset": "gTileset_Johto_Building_Hns",
+      "secondary_tileset": "gTileset_PlayersHouse_Hns",
+      "border_filepath": "data/layouts/HiddenVillage_PlayersHouse_ParentsRoom/border.bin",
+      "blockdata_filepath": "data/layouts/HiddenVillage_PlayersHouse_ParentsRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_HIDDEN_VILLAGE_PLAYERS_HOUSE2F",
+      "name": "HiddenVillage_PlayersHouse2F_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Johto_Building_Hns",
+      "secondary_tileset": "gTileset_PlayersHouse_Hns",
+      "border_filepath": "data/layouts/HiddenVillage_PlayersHouse2F/border.bin",
+      "blockdata_filepath": "data/layouts/HiddenVillage_PlayersHouse2F/map.bin"
     }
   ]
 }
