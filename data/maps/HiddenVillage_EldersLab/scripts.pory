@@ -43,6 +43,8 @@ script HiddenVillage_EldersLab_EventScript_Elder {
 // --------------------------------------------------
 script HiddenVillage_EldersLab_EventScript_IntroCutscene {
     lockall
+    msgbox(format("Ah! {PLAYER}!"))
+    closemessage
     
     applymovement(OBJ_EVENT_ID_PLAYER, HiddenVillage_EldersLab_Movement_PlayerEnter)
     waitmovement(0)

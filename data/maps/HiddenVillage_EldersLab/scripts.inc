@@ -55,76 +55,80 @@ HiddenVillage_EldersLab_EventScript_Elder_4:
 HiddenVillage_EldersLab_EventScript_IntroCutscene::
 # 45 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	lockall
-# 47 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, HiddenVillage_EldersLab_Movement_PlayerEnter
-# 48 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	waitmovement 0
-# 50 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 46 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	msgbox HiddenVillage_EldersLab_EventScript_IntroCutscene_Text_0
-# 51 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 47 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	closemessage
-# 53 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	applymovement 1, HiddenVillage_EldersLab_Movement_ElderLeave
-# 54 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 49 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, HiddenVillage_EldersLab_Movement_PlayerEnter
+# 50 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	waitmovement 0
+# 52 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	msgbox HiddenVillage_EldersLab_EventScript_IntroCutscene_Text_1
+# 53 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	closemessage
+# 55 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	applymovement 1, HiddenVillage_EldersLab_Movement_ElderLeave
 # 56 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	playse SE_EXIT
-# 57 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	removeobject 1
+	waitmovement 0
 # 58 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	setflag FLAG_TEMP_1
+	playse SE_EXIT
+# 59 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	removeobject 1
 # 60 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	setvar VAR_HIDDEN_VILLAGE_STATE, 1
+	setflag FLAG_TEMP_1
 # 62 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	setvar VAR_HIDDEN_VILLAGE_STATE, 1
+# 64 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	releaseall
 	end
 
 
-# 69 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 71 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 HiddenVillage_EldersLab_Movement_PlayerEnter:
-# 70 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 72 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_up
-# 70 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 72 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_up
-# 70 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 72 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_up
-# 70 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 72 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_up
-# 70 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 72 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_up
-# 70 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 72 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_up
-# 70 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 72 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_up
 	step_end
 
-# 73 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 75 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 HiddenVillage_EldersLab_Movement_ElderLeave:
-# 74 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	walk_left
-# 74 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	walk_left
-# 75 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	walk_down
-# 75 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	walk_down
-# 75 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	walk_down
 # 76 "data/maps/HiddenVillage_EldersLab/scripts.pory"
-	walk_right
+	walk_left
 # 76 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	walk_left
+# 77 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	walk_down
+# 77 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	walk_down
+# 77 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	walk_down
+# 78 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_right
-# 77 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 78 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	walk_right
+# 79 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_down
-# 77 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 79 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_down
-# 77 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 79 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_down
-# 77 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 79 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_down
-# 77 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 79 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_down
-# 77 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 79 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	walk_down
 	step_end
 
@@ -140,6 +144,10 @@ HiddenVillage_EldersLab_EventScript_Elder_Text_1:
 	.string "checked the garden yet?$"
 
 HiddenVillage_EldersLab_EventScript_IntroCutscene_Text_0:
-# 50 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+# 46 "data/maps/HiddenVillage_EldersLab/scripts.pory"
+	.string "Ah! {PLAYER}!$"
+
+HiddenVillage_EldersLab_EventScript_IntroCutscene_Text_1:
+# 52 "data/maps/HiddenVillage_EldersLab/scripts.pory"
 	.string "You're finally here, everybody is\n"
 	.string "already waiting in the backyard, lets go$"
