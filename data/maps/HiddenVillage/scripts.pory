@@ -1,4 +1,5 @@
 const LOCALID_LADY = 1 // Replace 1 with the Object Event ID of the NPC from Porymap
+const LOCALID_KNOWITALL = 4
 
 // --------------------------------------------------
 // Map Scripts
@@ -14,8 +15,10 @@ script HiddenVillage_OnTransition {
             setobjectmovementtype(LOCALID_LADY, MOVEMENT_TYPE_LOOK_AROUND)
             
         case 2: 
-            setobjectxyperm(LOCALID_LADY, 4, 14)
-            setobjectmovementtype(LOCALID_LADY, MOVEMENT_TYPE_WANDER_AROUND)
+            setflag(FLAG_TEMP_2)
+            setobjectxyperm(LOCALID_LADY, 17, 5)
+            setobjectmovementtype(LOCALID_LADY, MOVEMENT_TYPE_FACE_DOWN)
+            setobjectxyperm(LOCALID_KNOWITALL, 11, 11)
     }
 }
 
@@ -26,6 +29,25 @@ script HiddenVillage_EventScript_DefaultText {
     setvar(VAR_HIDDEN_VILLAGE_STATE, 2)
     release
     end
+}
+
+script HiddenVillage_EventScript_ClimbTheVine {
+    lock
+    faceplayer
+    msgbox(format("Hey {PLAYER}! Do you remember how to get into the treehouse? Just climb the vine like this!"))
+    closemessage
+
+    applymovement(LOCALID_KNOWITALL, Movement_ClimbTheVine)
+    waitmovement(0)
+    removeobject(LOCALID_KNOWITALL)
+    setflag(FLAG_TEMP_3)
+    release
+    end
+}
+
+movement Movement_ClimbTheVine {
+    walk_right * 2
+    walk_slow_up
 }
 
 // --------------------------------------------------
@@ -43,12 +65,22 @@ script HiddenVillage_EventScript_Lady {
             waitmovement(0)
             
         case 1: 
-            msgbox(format("I swear I saw a rare Pokémon hiding in this backyard just a second ago..."))
-            
+            msgbox(format("The Elder asked for help keeping an eye on you kids!"))
+        //Split into a talk to script and into a trigger script, the trigger moves the player down when finished, talking to the npc does not
         case 2: 
-            msgbox(format("The weather is so lovely today. The garden is thriving!"))
+            msgbox(format("H-hey! There's nothing past here... Weren't you going to see your friends at the Tree House? It's right over there!"))
+            special(SpawnCameraObject)
+            applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraPanLeftAndDown)
+            waitmovement(0)
+            msgbox(format("You can climb up it using the vine!"))
+            closemessage
+            applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraPanRightAndUp)
+            waitmovement(0)
+            special(RemoveCameraObject)
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+            waitmovement(0)
+            
     }
-    
     release
     end
 }
@@ -60,6 +92,8 @@ script HiddenVillage_EventScript_Lady {
 // Assign to the trigger tile on the LEFT of the NPC
 script HiddenVillage_EventScript_LateTriggerLeft {
     lockall
+    applymovement(LOCALID_LADY, Common_Movement_ExclamationMark)
+    waitmovement(0)
     applymovement(LOCALID_LADY, Common_Movement_FaceLeft)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
     waitmovement(0)
@@ -73,6 +107,8 @@ script HiddenVillage_EventScript_LateTriggerLeft {
 // Assign to the trigger tile on the RIGHT of the NPC
 script HiddenVillage_EventScript_LateTriggerRight {
     lockall
+    applymovement(LOCALID_LADY, Common_Movement_ExclamationMark)
+    waitmovement(0)
     applymovement(LOCALID_LADY, Common_Movement_FaceRight)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
     waitmovement(0)
@@ -94,4 +130,14 @@ script HiddenVillage_EventScript_LateTriggerMain {
     
     waitmovement(0) 
     return 
+}
+
+movement Movement_CameraPanLeftAndDown {
+    walk_slow_left * 4
+    walk_slow_down * 4
+}
+
+movement Movement_CameraPanRightAndUp {
+    walk_slow_up *4
+    walk_slow_right * 4
 }

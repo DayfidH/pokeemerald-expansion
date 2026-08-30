@@ -9340,7 +9340,7 @@
       "width": 10,
       "height": 10,
       "primary_tileset": "gTileset_Johto_Building_Hns",
-      "secondary_tileset": "gTileset_NewBarkTown_Hns",
+      "secondary_tileset": "gTileset_PlayersHouse_Hns",
       "border_filepath": "data/layouts/HiddenVillage_PlayerHouse/border.bin",
       "blockdata_filepath": "data/layouts/HiddenVillage_PlayerHouse/map.bin"
     },
@@ -9353,6 +9353,26 @@
       "secondary_tileset": "gTileset_NewBarkTown_Hns",
       "border_filepath": "data/layouts/HiddenVillage_EldersLab/border.bin",
       "blockdata_filepath": "data/layouts/HiddenVillage_EldersLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_HIDDEN_VILLAGE_TREEHOUSE",
+      "name": "HiddenVillage_Treehouse_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseTree",
+      "border_filepath": "data/layouts/HiddenVillage_Treehouse/border.bin",
+      "blockdata_filepath": "data/layouts/HiddenVillage_Treehouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_HIDDEN_FOREST",
+      "name": "HiddenForest_Layout",
+      "width": 42,
+      "height": 40,
+      "primary_tileset": "gTileset_Johto_General_Hns",
+      "secondary_tileset": "gTileset_ViridianForest_Hns",
+      "border_filepath": "data/layouts/HiddenForest/border.bin",
+      "blockdata_filepath": "data/layouts/HiddenForest/map.bin"
     }
   ]
 }

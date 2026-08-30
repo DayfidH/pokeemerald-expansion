@@ -78,6 +78,7 @@
   ],
   "gMapGroup_TownsAndRoutes": [
     "HiddenVillage",
+    "HiddenForest",
     "PetalburgCity",
     "SlateportCity",
     "MauvilleCity",
@@ -200,6 +201,7 @@
   "gMapGroup_IndoorPetalburg": [
     "HiddenVillage_PlayerHouse",
     "HiddenVillage_EldersLab",
+    "HiddenVillage_Treehouse",
     "PetalburgCity_WallysHouse",
     "PetalburgCity_Gym",
     "PetalburgCity_House1",
