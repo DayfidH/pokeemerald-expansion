@@ -1,6 +1,6 @@
 mapscripts HiddenVillage_PlayersHouse2F_MapScripts {}
 
-script HiddenVillage_EventScript_MasterTrigger {
+script HiddenVillage_EventScript_PlayersBedMasterTrigger {
     lockall
     
     switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
@@ -18,13 +18,14 @@ script HiddenVillage_EventScript_MasterTrigger {
             delay(30)
             fadescreen(1)
             delay(180)
-            msgbox(format("--DREAM SEQUENE 2--"))
+            msgbox(format("--DREAM SEQUENCE 2--"))
             closemessage
             fadescreen(0)
+            setvar(VAR_HIDDEN_VILLAGE_STATE, 5)
         default:
             msgbox(format("It's still too early to go to bed..."))
             closemessage
-            applymovement (OBJ_EVENT_ID_PLAYER, HiddenVillage_PlayersHouse2F_Movement_ExitBed)
+            applymovement(OBJ_EVENT_ID_PLAYER, HiddenVillage_PlayersHouse2F_Movement_ExitBed)
     }
     
     releaseall

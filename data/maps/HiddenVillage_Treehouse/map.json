@@ -15,6 +15,7 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_HEART",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 3,
       "y": 5,
@@ -28,6 +29,7 @@
       "flag": "FLAG_HIDE_TREEHOUSE_NPCS"
     },
     {
+      "local_id": "LOCALID_BRAIN",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
       "x": 4,
       "y": 3,
@@ -41,6 +43,7 @@
       "flag": "FLAG_HIDE_TREEHOUSE_NPCS"
     },
     {
+      "local_id": "LOCALID_STRENGTH",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER_HNS",
       "x": 6,
       "y": 4,

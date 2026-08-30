@@ -5,6 +5,7 @@ mapscripts HiddenVillage_Treehouse_MapScripts {
     ]
 }
 
+
 script HiddenVillage_Treehouse_EventScript_Cutscene {
     lockall
     

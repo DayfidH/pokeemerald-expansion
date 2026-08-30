@@ -43,9 +43,15 @@ script HiddenVillage_EldersLab_EventScript_IntroCutscene {
     lockall
     msgbox(format("Ah! {PLAYER}!"))
     closemessage
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, HiddenVillage_EldersLab_Movement_CameraMovementOne)
+    waitmovement(0)
     
+    applymovement(OBJ_EVENT_ID_CAMERA, HiddenVillage_EldersLab_Movement_CameraPansToPlayer)
     applymovement(LOCALID_ELDER, HiddenVillage_EldersLab_Movement_ElderWalksToPlayer)
     waitmovement(0)
+    special(RemoveCameraObject)
     
     msgbox(format("You're finally here, everybody is already in the backyard waiting for us. Let's head out."))
     closemessage
@@ -72,10 +78,22 @@ movement HiddenVillage_EldersLab_Movement_PlayerMovesRight {
     face_left
 }
 
+movement HiddenVillage_EldersLab_Movement_CameraPansToPlayer {
+    walk_down * 2
+    walk_right * 4
+    walk_down * 4
+}
+
 movement HiddenVillage_EldersLab_Movement_ElderWalksToPlayer {
-    down * 2
-    right * 4
-    down * 3
+    walk_down * 2
+    walk_right * 4
+    walk_down * 3
+}
+
+movement HiddenVillage_EldersLab_Movement_CameraMovementOne {
+    walk_up * 3
+    walk_left * 4
+    walk_up * 2
 }
 
 movement HiddenVillage_EldersLab_Movement_ElderExitsLab {
