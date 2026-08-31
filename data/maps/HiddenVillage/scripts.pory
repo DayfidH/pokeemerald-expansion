@@ -1,3 +1,12 @@
+const LOCALID_LADY = 1
+const LOCALID_FRIEND_BRAIN = 2
+const LOCALID_FRIEND_HEART = 3
+const LOCALID_FRIEND_STRENGTH = 4
+const LOCALID_INTRO_HEART = 6
+const LOCALID_TREEHOUSE_STRENGTH = 7
+const LOCALID_TREEHOUSE_HEART = 8
+const LOCALID_TREEHOUSE_BRAIN = 9
+
 // --------------------------------------------------
 // Map Scripts
 // --------------------------------------------------
@@ -9,10 +18,10 @@ mapscripts HiddenVillage_MapScripts {
 }
 
 // --------------------------------------------------
-// Initialization & State Management
+// Map Transition & State Management
 // --------------------------------------------------
 script HiddenVillage_OnTransition {
-    // 1. Check if the intro has already happened
+    // 1. Initial Morning Intro logic
     if (flag(FLAG_HIDDEN_VILLAGE_HEART_INTRO_COMPLETE)) {
         setvar(VAR_TEMP_0, 1)
     }
@@ -30,18 +39,17 @@ script HiddenVillage_OnTransition {
             setflag(FLAG_TEMP_12) 
             setflag(FLAG_TEMP_13) 
         //After First Class
-        //After First Class
         case 2: 
             setobjectxyperm(LOCALID_LADY, 17, 5)
             setobjectmovementtype(LOCALID_LADY, MOVEMENT_TYPE_FACE_DOWN)
             
-            // FIX: Hide the original Lab group
+            // Hide the original Lab group
             setflag(FLAG_TEMP_11) 
             
-            // FIX: Hide Treehouse Heart/Brain
+            // Hide Treehouse Heart/Brain
             setflag(FLAG_TEMP_12) 
             
-            // FIX: Update Treehouse Strength's location, and do NOT set FLAG_TEMP_13 so he stays visible
+            // Update Treehouse Strength's location, and do NOT set FLAG_TEMP_13 so he stays visible
             setobjectxyperm(LOCALID_TREEHOUSE_STRENGTH, 11, 11)
             setobjectmovementtype(LOCALID_TREEHOUSE_STRENGTH, MOVEMENT_TYPE_FACE_LEFT)
             
@@ -50,7 +58,7 @@ script HiddenVillage_OnTransition {
             setflag(FLAG_TEMP_11) 
             setflag(FLAG_TEMP_12) 
             
-            // FIX: In State 2, Strength climbs the vine and is removed. 
+            // In State 2, Strength climbs the vine and is removed. 
             // Therefore, he MUST be hidden when the map reloads in State 3.
             setflag(FLAG_TEMP_13)
         //After Leaving Treehouse to go home for bed
@@ -90,116 +98,7 @@ script HiddenVillage_EventScript_FriendHeart_Intro {
 }
 
 // --------------------------------------------------
-// NPC Interactions
-// --------------------------------------------------
-script HiddenVillage_EventScript_DefaultText {
-    lock
-    faceplayer
-    msgbox(format("Hi {PLAYER}!"))
-    setvar(VAR_HIDDEN_VILLAGE_STATE, 2)
-    release
-    end
-}
-
-script HiddenVillage_EventScript_FriendHeart {
-    lock
-    faceplayer
-    switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
-        case 1:
-            msgbox(format("Heart: It took you long enough! Hey... are you okay?"))
-            closemessage
-        case 3: 
-            msgbox(format("Heart: We're currently in state 3..."))
-            closemessage
-        default:
-        // Wrap the arguments in parentheses!
-        buffernumberstring(STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE) 
-        
-        // Same for msgbox!
-        msgbox(format("DEBUG_MISSING TEXT\nState ({STR_VAR_1})"))
-    }
-    release
-    end
-}
-
-script HiddenVillage_EventScript_FriendStrength {
-    lock
-    faceplayer
-    switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
-        case 1:
-            msgbox(format("Strength: You're finally here! We've been waiting for you!"))
-            closemessage
-        case 2: 
-            msgbox(format("Strength: Hey {PLAYER}! Do you remember how to get into the treehouse? Just climb the vine like this!"))
-            closemessage
-
-            applymovement(LOCALID_TREEHOUSE_STRENGTH, Movement_ClimbTheVine)
-            waitmovement(0)
-            playse(SE_EXIT)
-            removeobject(LOCALID_TREEHOUSE_STRENGTH)
-            
-            setvar(VAR_HIDDEN_VILLAGE_STATE, 3)
-                    default:
-        // Wrap the arguments in parentheses!
-        buffernumberstring(STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE) 
-        
-        // Same for msgbox!
-        msgbox(format("DEBUG_MISSING TEXT\nState ({STR_VAR_1})"))
-    }
-    release
-    end
-}
-
-script HiddenVillage_EventScript_Lady {
-    lock
-    faceplayer
-    
-    switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
-        case 0:
-            msgbox(format("{PLAYER}! You're going to be late! Hurry up and see the Village Elder..."))
-            closemessage
-            applymovement(LOCALID_LADY, Common_Movement_FaceDown)
-            waitmovement(0)
-            
-        case 1: 
-            msgbox(format("The Elder asked for help keeping an eye on you kids!"))
-            closemessage
-            
-        case 2: 
-            //Need to move her to the north of the labbackyard
-            msgbox(format("H-hey! There's nothing past here... Weren't you going to see your friends at the Treehouse? It's right over there!"))
-            closemessage
-            
-            special(SpawnCameraObject)
-            applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraPanLeftAndDown)
-            waitmovement(0)
-            
-            msgbox(format("You can climb up it using the vine!"))
-            closemessage
-            
-            applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraPanRightAndUp)
-            waitmovement(0)
-            special(RemoveCameraObject)
-            
-            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
-            waitmovement(0)
-
-        case 3: 
-            msgbox(format("It's pretty late... Isn't it past your bedtime?"))
-            closemessage
-        default:
-            // Wrap the arguments in parentheses!
-            buffernumberstring(STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE) 
-        
-        // Same for msgbox!
-            msgbox(format("DEBUG_MISSING TEXT\nState ({STR_VAR_1})"))
-    }
-    release
-    end
-}
-
-// --------------------------------------------------
-// Elder's Class & Treehouse Walk Cutscene
+// Elder's Class Cutscene
 // --------------------------------------------------
 script HiddenVillage_EventScript_ElderClass_Left {
     lockall
@@ -275,7 +174,6 @@ script HiddenVillage_EventScript_ElderClass {
     setobjectxyperm(LOCALID_TREEHOUSE_STRENGTH, 11, 11)
     setobjectmovementtype(LOCALID_TREEHOUSE_STRENGTH, MOVEMENT_TYPE_FACE_LEFT)
 
-    
     // Advance the town state
     setvar(VAR_HIDDEN_VILLAGE_STATE, 2)
     
@@ -313,16 +211,114 @@ script HiddenVillage_EventScript_LateTriggerRight {
 }
 
 script HiddenVillage_EventScript_LateTriggerMain {
+    msgbox(format("{PLAYER}! You're going to be late! Hurry up and see the Village Elder..."))
+    closemessage
+    applymovement(LOCALID_LADY, Common_Movement_FaceDown)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+    waitmovement(0) 
+    return 
+}
+
+// --------------------------------------------------
+// NPC Interactions
+// --------------------------------------------------
+script HiddenVillage_EventScript_DefaultText {
+    lock
+    faceplayer
+    msgbox(format("Hi {PLAYER}!"))
+    setvar(VAR_HIDDEN_VILLAGE_STATE, 2)
+    release
+    end
+}
+
+script HiddenVillage_EventScript_FriendHeart {
+    lock
+    faceplayer
+    switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
+        case 1:
+            msgbox(format("Heart: It took you long enough! Hey... are you okay?"))
+            closemessage
+        case 3: 
+            msgbox(format("Heart: We're currently in state 3..."))
+            closemessage
+        default:
+            buffernumberstring(STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE) 
+            msgbox(format("DEBUG_MISSING TEXT\nState ({STR_VAR_1})"))
+    }
+    release
+    end
+}
+
+script HiddenVillage_EventScript_FriendStrength {
+    lock
+    faceplayer
+    switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
+        case 1:
+            msgbox(format("Strength: You're finally here! We've been waiting for you!"))
+            closemessage
+        case 2: 
+            msgbox(format("Strength: Hey {PLAYER}! Do you remember how to get into the treehouse? Just climb the vine like this!"))
+            closemessage
+
+            applymovement(LOCALID_TREEHOUSE_STRENGTH, Movement_ClimbTheVine)
+            waitmovement(0)
+            playse(SE_EXIT)
+            removeobject(LOCALID_TREEHOUSE_STRENGTH)
+            
+            setvar(VAR_HIDDEN_VILLAGE_STATE, 3)
+        default:
+            buffernumberstring(STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE) 
+            msgbox(format("DEBUG_MISSING TEXT\nState ({STR_VAR_1})"))
+    }
+    release
+    end
+}
+
+script HiddenVillage_EventScript_Lady {
+    lock
+    faceplayer
+    
     switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
         case 0:
             msgbox(format("{PLAYER}! You're going to be late! Hurry up and see the Village Elder..."))
             closemessage
             applymovement(LOCALID_LADY, Common_Movement_FaceDown)
+            waitmovement(0)
+            
+        case 1: 
+            msgbox(format("The Elder asked for help keeping an eye on you kids!"))
+            closemessage
+            
+        case 2: 
+            //Need to move her to the north of the labbackyard
+            msgbox(format("H-hey! There's nothing past here... Weren't you going to see your friends at the Treehouse? It's right over there!"))
+            closemessage
+            
+            special(SpawnCameraObject)
+            applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraPanLeftAndDown)
+            waitmovement(0)
+            
+            msgbox(format("You can climb up it using the vine!"))
+            closemessage
+            
+            applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraPanRightAndUp)
+            waitmovement(0)
+            special(RemoveCameraObject)
+            
             applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
-            waitmovement(0) 
+            waitmovement(0)
+
+        case 3: 
+            msgbox(format("It's pretty late... Isn't it past your bedtime?"))
+            closemessage
+        default:
+            buffernumberstring(STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE) 
+            msgbox(format("DEBUG_MISSING TEXT\nState ({STR_VAR_1})"))
     }
-    return 
+    release
+    end
 }
+
 
 // --------------------------------------------------
 // Movements
@@ -400,6 +396,7 @@ movement Movement_HeartWalkOff {
 
 movement Movement_BrainWalkOff {
     walk_down
+    delay_8
     walk_left * 3
     walk_down * 3
     walk_left * 2
@@ -412,13 +409,12 @@ movement Movement_StrengthReappear {
     walk_right
     walk_right
     walk_right
-    delay_16 * 3
+    delay_16 * 4
     walk_up
     face_left
 }
 
 movement Movement_HeartReappear {
-    delay_4
     walk_up * 2
     walk_right * 6
     walk_slow_up
